@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page protégée par mot de passe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Coucou chérie, envoie moi un message avec le mdp que tu aimerais avoir. 🩷</h1>
+    <form id="passwordForm">
+        <input type="password" id="password" placeholder="Mot de passe">
+        <br>
+        <input type="submit" value="Valider">
+    </form>
+    <p id="message" class="error"></p>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const correctPassword = "test";
+            const message = document.getElementById('message');
+
+            if (password === correctPassword) {
+                message.style.color = 'green';
+                message.textContent = "Mot de passe correct. Tu es bien Angeline.";
+                // Redirige vers une autre page (remplacez 'success.html' par la page désirée)
+                window.location.href = 'Acceuil.html';
+            } else {
+                message.textContent = "Mot de passe incorrect. Tu n'es pas Angeline ou alors tu t'es trompée-.";
+            }
+        });
+    </script>
+
+</body>
+</html>
